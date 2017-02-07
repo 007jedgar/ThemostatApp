@@ -13,6 +13,7 @@
 		ABD0A7561E48ECAD004B661A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABD0A7541E48ECAD004B661A /* Main.storyboard */; };
 		ABD0A7581E48ECAD004B661A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABD0A7571E48ECAD004B661A /* Assets.xcassets */; };
 		ABD0A75B1E48ECAD004B661A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABD0A7591E48ECAD004B661A /* LaunchScreen.storyboard */; };
+		ABD0A7651E48F4E1004B661A /* ConvertMeasurments.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD0A7641E48F4E1004B661A /* ConvertMeasurments.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		ABD0A7571E48ECAD004B661A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ABD0A75A1E48ECAD004B661A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ABD0A75C1E48ECAD004B661A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ABD0A7631E48F4E1004B661A /* ConvertMeasurments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConvertMeasurments.h; sourceTree = "<group>"; };
+		ABD0A7641E48F4E1004B661A /* ConvertMeasurments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConvertMeasurments.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,7 @@
 		ABD0A74A1E48ECAD004B661A /* ThemostatApp */ = {
 			isa = PBXGroup;
 			children = (
+				ABD0A7621E48F4B9004B661A /* Classes */,
 				ABD0A74E1E48ECAD004B661A /* AppDelegate.h */,
 				ABD0A74F1E48ECAD004B661A /* AppDelegate.m */,
 				ABD0A7511E48ECAD004B661A /* ViewController.h */,
@@ -77,6 +81,15 @@
 				ABD0A74C1E48ECAD004B661A /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ABD0A7621E48F4B9004B661A /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				ABD0A7631E48F4E1004B661A /* ConvertMeasurments.h */,
+				ABD0A7641E48F4E1004B661A /* ConvertMeasurments.m */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +163,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABD0A7651E48F4E1004B661A /* ConvertMeasurments.m in Sources */,
 				ABD0A7531E48ECAD004B661A /* ViewController.m in Sources */,
 				ABD0A7501E48ECAD004B661A /* AppDelegate.m in Sources */,
 				ABD0A74D1E48ECAD004B661A /* main.m in Sources */,
