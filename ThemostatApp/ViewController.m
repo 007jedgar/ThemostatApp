@@ -17,31 +17,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.tempValueSlider.value = self.displayTempLabel.text.floatValue;
+
     // Do any additional setup after loading the view, typically from a nib.
+    
 }
 
 
 -(IBAction)tempValueSlider:(id)sender{
-    //UISlider *slider = (UISlider *) sender;
+    UISlider *slider = (UISlider *) sender;
     
     if (self.segment == 0){
             self.tempValueSlider.minimumValue = -32;
             self.tempValueSlider.maximumValue = 100;
-            self.displayTempLabel.text = [NSString stringWithFormat:@"%.0f",self.tempValueSlider.value];
-    
-        /*
-        self.view.backgroundColor = [UIColor colorWithRed:self.tempValueSlider
-                                                    green:<#(CGFloat)#>
-                                                     blue:<#(CGFloat)#>
-                                                    alpha:0;
-*/
+            int temp = (int) self.tempValueSlider.value;
+        
+            self.displayTempLabel.text = [NSString stringWithFormat:@"%d°C",temp];
     }else{
         self.tempValueSlider.minimumValue = -32 *9/5+32;
         self.tempValueSlider.maximumValue = 100 *9/5+32;
-        self.displayTempLabel.text = [NSString stringWithFormat:@"%.0f",self.tempValueSlider.value];
+        int temp = (int) self.tempValueSlider.value;
+
+        self.displayTempLabel.text = [NSString stringWithFormat:@"%d°F",temp];
     }
-   
+ 
+    
 }
 
 -(IBAction) measurmentController:(id)sender {
@@ -50,25 +50,31 @@
 
     ConvertMeasurments *converter = [[ConvertMeasurments alloc]init];
     
-    
     if (selector == 0){
-        self.segment = 0;
+        //Going to Celsius
+        self.segment = 0;   //global value of segmented controller
+        self.tempValueSlider.minimumValue = -32;    //set min and max slide values
+        self.tempValueSlider.maximumValue = 100;
+        int labelValue = self.displayTempLabel.text.intValue;   //get int value of label
         
+        int fahrTemp = [converter fahrToCelcius:labelValue];    //call conversion method
+        self.displayTempLabel.text = [NSString stringWithFormat:@"%d°C",fahrTemp];  //prints temp to label
+        self.tempValueSlider.value = labelValue;    //sets slider value to label value
+
     }else{
+        //Going To Fahrenheit
         self.segment = 1;
-        int fahrTemp = [converter fahrToCelcius:self.tempValueSlider.value];
-        self.displayTempLabel.text = [NSString stringWithFormat:@"%d",fahrTemp];
+        self.tempValueSlider.minimumValue = -32 *9/5+32;
+        self.tempValueSlider.maximumValue = 100 *9/5+32;
+        int labelValue = self.displayTempLabel.text.intValue;
         
+        int celsius = [converter celciusToFahr:labelValue];
+        self.displayTempLabel.text = [NSString stringWithFormat:@"%d°F", celsius];
+        self.tempValueSlider.value = labelValue;
+
     }
     
-    if(selector == 1){
-        self.segment =1;
-    }else {
-        self.segment = 0;
-        int celcius = [converter celciusToFahr:self.tempValueSlider.value];
-        self.displayTempLabel.text = [NSString stringWithFormat:@"%d°F", celcius];
-    }
+    
+    
 }
-
-
 @end
